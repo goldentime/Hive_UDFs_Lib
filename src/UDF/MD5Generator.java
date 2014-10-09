@@ -32,10 +32,12 @@ public class MD5Generator extends UDF
     }
     throw new RuntimeException();
   }
-
+  
+/*
   public static void main(String[] args)
   {
 	  //test
     System.out.println(getMD5("pctnetpctnetpctnet"));
   }
+  */
 }
