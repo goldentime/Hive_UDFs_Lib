@@ -4,31 +4,18 @@ import org.apache.hadoop.hive.ql.exec.UDF;
 
 public class IP2Long extends UDF
 {
-  public static String evaluate(String longip)
+  public static long evaluate(String ip)
   {
-    StringBuffer sb = new StringBuffer("");
-    if ((longip != null) && (!longip.equals(""))) {
-      long longIp = Long.valueOf(longip).longValue();
-
-      sb.append(String.valueOf(longIp >>> 24));
-      sb.append(".");
-
-      sb.append(String.valueOf((longIp & 0xFFFFFF) >>> 16));
-      sb.append(".");
-
-      sb.append(String.valueOf((longIp & 0xFFFF) >>> 8));
-      sb.append(".");
-
-      sb.append(String.valueOf(longIp & 0xFF));
-    }
-    return sb.toString();
+    String[] ips = ip.split("[.]");     
+    long num =  16777216L*Long.parseLong(ips[0]) + 65536L*Long.parseLong(ips[1]) + 256*Long.parseLong(ips[2]) + Long.parseLong(ips[3]);     
+    return num;
   }
   
   /*
   public static void main(String[] args)
   {
 	  //test
-    System.out.println(evaluate("1234567890"));
+    System.out.println(evaluate("73.150.2.210"));
   }
   */
   

@@ -77,7 +77,7 @@ public class IP2Location  extends UDF {
     {
         String dbfile = "G:\\GeoLiteCity.dat\\GeoLiteCity.dat";
         IP2Location ipTocc = new IP2Location();
-        String ipAdress = "124.16.31.151"; // "221.12.10.219";
+        String ipAdress = "202.108.5.102"; // "221.12.10.219";
         
         System.out.println(ipTocc.evaluate(ipAdress,dbfile));
     }
